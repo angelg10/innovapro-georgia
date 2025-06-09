@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Services from './components/Services';
+import Work from './components/Work';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import WhatsAppButton from './components/WhatsAppButton';
+
+import { translations } from './data/translations';
+import './index.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [lang, setLang] = useState('en');
+  const currentTranslations = translations[lang];
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="bg-white">
+      <Header 
+        lang={lang} 
+        setLang={setLang} 
+        translations={currentTranslations.navigation} 
+      />
+      <main>
+        <Hero translations={currentTranslations.hero} />
+        <Services translations={currentTranslations.services} />
+        <Work translations={currentTranslations.work} />
+        <Contact translations={currentTranslations.contact} />
+      </main>
+      <Footer translations={currentTranslations.footer} />
+      <WhatsAppButton /> {/* Añade el botón flotante aquí */}
+    </div>
+  );
 }
 
-export default App
+export default App;
