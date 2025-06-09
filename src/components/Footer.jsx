@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'; // Importamos los iconos
+import { FaFacebook, FaInstagram } from 'react-icons/fa'; // Se eliminó FaTwitter
+import XIcon from './XIcon'; // Se importa el nuevo icono de X
 
 const Footer = ({ translations }) => {
   return (
@@ -24,7 +25,7 @@ const Footer = ({ translations }) => {
             <FaInstagram size={28} />
           </a>
           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white hover:scale-125 transition-all duration-300" aria-label="Twitter/X">
-            <FaTwitter size={28} />
+            <XIcon size={24} /> {/* Se reemplazó el icono de Twitter por el de X */}
           </a>
         </div>
 

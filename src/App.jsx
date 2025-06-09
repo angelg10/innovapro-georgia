@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import Work from './components/Work';
+import Portfolio from './components/Portfolio'; // Importa el nuevo componente
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -25,10 +26,11 @@ function App() {
         <Hero translations={currentTranslations.hero} />
         <Services translations={currentTranslations.services} />
         <Work translations={currentTranslations.work} />
+        <Portfolio translations={currentTranslations.portfolio} /> {/* Añade la nueva sección */}
         <Contact translations={currentTranslations.contact} />
       </main>
       <Footer translations={currentTranslations.footer} />
-      <WhatsAppButton /> {/* Añade el botón flotante aquí */}
+      <WhatsAppButton />
     </div>
   );
 }
