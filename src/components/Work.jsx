@@ -1,5 +1,10 @@
 import React from 'react';
-import { BeforeAfterSlider } from './BeforeAfterSlider'; // Importamos el nuevo componente
+import { BeforeAfterVerticalVideo } from './BeforeAfterVerticalVideo'; // Importamos el nuevo componente
+
+// --- CORRECCIÓN ---
+// Importamos los videos directamente. Esto le da a Vite la ruta correcta.
+import beforeVideoURL from '../assets/video/FlooringBefore.mp4';
+import afterVideoURL from '../assets/video/FlooringAfter.mp4'; 
 
 const Work = ({ translations }) => {
   return (
@@ -8,9 +13,10 @@ const Work = ({ translations }) => {
         <h2 className="text-3xl md:text-4xl font-bold mb-2">{translations.title}</h2>
         <p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">{translations.intro}</p>
         
-        <BeforeAfterSlider 
-          beforeImage="https://placehold.co/700x400/d1d5db/545454?text=Before"
-          afterImage="https://placehold.co/700x400/ffde59/545454?text=After"
+        <BeforeAfterVerticalVideo 
+          // Usamos las variables importadas
+          beforeVideo={beforeVideoURL}
+          afterVideo={afterVideoURL}
           beforeLabel={translations.before}
           afterLabel={translations.after}
         />

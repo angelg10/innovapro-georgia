@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-const images = [
-  'https://placehold.co/1920x1080/e2e8f0/545454?text=Beautiful+Roofing',
-  'https://placehold.co/1920x1080/e2e8f0/545454?text=Modern+Flooring',
-  'https://placehold.co/1920x1080/e2e8f0/545454?text=Pristine+Painting',
-];
+// --- CORRECCIÓN ---
+// Se importan las imágenes para obtener sus rutas correctas
+import image1 from '../assets/instalation_roofing_4.jpg';
+import image2 from '../assets/Roofing-after.jpg';
+import image3 from '../assets/instalation_fence_1.jpg';
+
+// Se usa el array con las variables importadas
+const images = [image1, image2, image3];
 
 const Hero = ({ translations }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -21,7 +24,7 @@ const Hero = ({ translations }) => {
       {/* Slideshow de fondo */}
       {images.map((src, index) => (
         <div
-          key={src}
+          key={index} // Se usa el índice como key ya que las imágenes no cambian de orden
           className="absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000"
           style={{ 
             backgroundImage: `url(${src})`,
@@ -52,4 +55,3 @@ const Hero = ({ translations }) => {
 };
 
 export default Hero;
-
